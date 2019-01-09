@@ -38,5 +38,30 @@ namespace arrayShiftUnitTests
             Assert.Equal(expectedOutput, actualOutput);
         }
 
+        [Fact]
+        public void AcceptsEmptyArray()
+        {
+            int[] emptyArray = { };
+            int exampleInt = 42;
+            int[] expectedOutput = { 42 };
+            int[] actualOutput = Program.InsertShiftArray(emptyArray, exampleInt);
+            //assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+
+        [Fact]
+        public void DoesNotRequireSortedInput()
+        {
+            //arrange
+            int[] exampleArray = { 8, 4, 0, 2 };
+            int exampleInt = 5;
+            int[] expectedOutput = { 8, 4, 5, 0, 2 };
+            int[] expectedIfSort = { 0, 2, 4, 5, 8 };
+            //act
+            int[] actualOutput = Program.InsertShiftArray(exampleArray, exampleInt);
+            //assert
+            Assert.Equal(expectedOutput, actualOutput);
+            Assert.NotEqual(expectedIfSort, actualOutput);
+        }
     }
 }
