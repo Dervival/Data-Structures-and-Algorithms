@@ -7,12 +7,18 @@ namespace arrayShift
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-        }
+            int[] exampleArr = { 4, 8, 15, 23, 42 };
+            int exampleInt = 16;
 
-        //public static int TestLink()
-        //{
-        //    return 1;
-        //}
+            int[] newArr = InsertShiftArray(exampleArr, exampleInt);
+
+            for (int i = 0; i < newArr.Length; i++)
+            {
+                //should print out "4 8 15 16 23 42 "
+                Console.Write(newArr[i] + " ");
+            }
+
+        }
 
         public static int[] InsertShiftArray(int[] baseArray, int addedInteger)
         {
