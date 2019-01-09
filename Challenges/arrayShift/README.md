@@ -15,8 +15,8 @@ new value added at the middle index.
 
 ## Solution
 
-![Whiteboard for Insert and Shift an Array](../../assets/Challenge2_full.PNG)
+![Whiteboard for Insert and Shift an Array](../../assets/Challenge2_full.jpg)
 Full picture of whiteboard. Apologies for the low quality of image.
 
-![Algorithm for Insert and Shift an Array](../../assets/Challenge2_algorithm.PNG)
+![Algorithm for Insert and Shift an Array](../../assets/Challenge2_algorithm.jpg)
 Detail picture of algorithm from whiteboard. Apologies for the low quality of image.
