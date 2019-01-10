@@ -40,9 +40,20 @@ namespace arrayBinarySearch
                 //mid - 1     +      1     + right.Length = sortedArray.Length
                 //right.length = sortedArray.Length - mid
                 int[] rightSubArray = new int[sortedArray.Length - mid];
-                
+                for(int i = 0; i < sortedArray.Length - mid; i++)
+                {
+                    rightSubArray[i] = sortedArray[i + mid];
+                }
+                int offsetIndex = BinarySearch(rightSubArray, target);
+                if(offsetIndex < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return offsetIndex + mid + 1;
+                }
             }
-            return -2;
         }
     }
 }
