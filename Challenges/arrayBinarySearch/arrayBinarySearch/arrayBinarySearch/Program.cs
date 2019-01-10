@@ -7,6 +7,10 @@ namespace arrayBinarySearch
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            int[] testArray = new int[] { 4, 8, 16, 23, 42 };
+            int target = 16;
+            int foundIndex = BinarySearch(testArray, target);
+            Console.WriteLine(foundIndex);
         }
 
         public static int BinarySearch(int[] sortedArray, int target)
@@ -26,9 +30,10 @@ namespace arrayBinarySearch
             else if(target < sortedArray[mid])
             {
                 //middle has already been tested, so create a new array from all elements smaller than it
-                int[] leftSubArray = new int[mid - 1];
+                int[] leftSubArray = new int[mid];
                 for(int i = 0; i < mid; i++)
                 {
+                    Console.WriteLine(i);
                     leftSubArray[i] = sortedArray[i];
                 }
                 return BinarySearch(leftSubArray, target);
@@ -39,7 +44,7 @@ namespace arrayBinarySearch
                 //left.Length + mid.Length + right.Length = sortedArray.Length
                 //mid - 1     +      1     + right.Length = sortedArray.Length
                 //right.length = sortedArray.Length - mid
-                int[] rightSubArray = new int[sortedArray.Length - mid];
+                int[] rightSubArray = new int[sortedArray.Length - mid + 1];
                 for(int i = 0; i < sortedArray.Length - mid; i++)
                 {
                     rightSubArray[i] = sortedArray[i + mid];
@@ -51,7 +56,7 @@ namespace arrayBinarySearch
                 }
                 else
                 {
-                    return offsetIndex + mid + 1;
+                    return offsetIndex + mid;
                 }
             }
         }
