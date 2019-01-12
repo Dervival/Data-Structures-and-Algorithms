@@ -5,4 +5,5 @@ Repository for work for the Code Fellows 401 dn-401d6 dotnet course
 
 1. [Challenge: Insert and Shift Array](Challenges/arrayShift)
 2. [Challenge: Binary Search of a sorted Array](Challenges/arrayBinarySearch)
+3. [Data Structure: Singly Linked List](Data-Structures/linkedList)
 
