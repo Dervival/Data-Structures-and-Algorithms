@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms
-Repository for work for the Code Fellows 401 dn-401d6 dotnet course
+This folder contains my C# implementation of given data structures for the purposes of the Code Fellows seattle-dn-401d6 coursework.
