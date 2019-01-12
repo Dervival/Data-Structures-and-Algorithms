@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedList.Classes
 {
-    class Node
+    public class Node
     {
         /// <summary>
         /// Value is the integer data stored within the node.
@@ -14,7 +14,10 @@ namespace LinkedList.Classes
         /// Next is a reference to another node; for linked lists, it is a reference to the next node in the linked list.
         /// </summary>
         public Node Next { get; set; }
-
+        /// <summary>
+        /// Constructor for an integer node. Null values are not allowed - nodes must be instantiated with an initial value.
+        /// </summary>
+        /// <param name="value"></param>
         public Node(int value)
         {
             Value = value;

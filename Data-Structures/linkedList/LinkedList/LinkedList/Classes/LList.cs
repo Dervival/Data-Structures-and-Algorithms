@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedList.Classes
 {
-    class LList
+    public class LList
     {
         /// <summary>
         /// Head is the first node in the linked list. If Head is null, the linked list is empty.
@@ -33,21 +33,36 @@ namespace LinkedList.Classes
         /// <summary>
         /// Inserts a node containing the provided value at the start of the linked list. The head will point to the added node.
         /// </summary>
-        /// <param name="value">The </param>
+        /// <param name="value">The value for the node that is to be added at the start of the list.</param>
         public void Insert(int value)
         {
             Node node = new Node(value);
             node.Next = Head;
             Head = node;
         }
+        /// <summary>
+        /// Inserts a previously constructed node at the start of the linked list. The head will point to the added node.
+        /// </summary>
+        /// <param name="node">The node to be added to the start of the list.</param>
         public void Insert(Node node)
         {
             node.Next = Head;
             Head = node;
         }
+        /// <summary>
+        /// Determines whether a node in the linked list contains the value provided. Returns true if the value is found.
+        /// </summary>
+        /// <param name="value">Value to be found.</param>
+        /// <returns>
+        /// Returns true if value is found. Otherwise, returns false.
+        /// </returns>
         public bool Includes(int value)
         {
             Current = Head;
+            if(Current == null)
+            {
+                return false;
+            }
             while (Current.Next != null)
             {
                 if (Current.Value == value)
@@ -62,9 +77,17 @@ namespace LinkedList.Classes
             }
             return false;
         }
+        /// <summary>
+        /// Prints the linked list node by node to the console. 
+        /// </summary>
         public void Print()
         {
             Current = Head;
+            if(Current == null)
+            {
+                Console.WriteLine("NULL");
+                return;
+            }
             while (Current.Next != null)
             {
                 Console.Write(Current.Value + " -> ");
@@ -72,6 +95,10 @@ namespace LinkedList.Classes
             }
             Console.WriteLine(Current.Value + " -> NULL");
         }
+        /// <summary>
+        /// Counts the number of nodes in the linked list. If the list is empty, the count is zero.
+        /// </summary>
+        /// <returns>The number of nodes in the list.</returns>
         public int CountNodes()
         {
             int accumulator = 0;
@@ -92,9 +119,15 @@ namespace LinkedList.Classes
             accumulator++;
             return accumulator;
         }
+        /// <summary>
+        /// If it exists, removes the first node from the linked list.
+        /// </summary>
         public void Behead()
         {
-            Head = Head.Next;
+            if(!(Head == null))
+            {
+                Head = Head.Next;
+            }
         }
     }
 }
