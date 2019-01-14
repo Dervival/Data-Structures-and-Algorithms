@@ -124,6 +124,7 @@ namespace LinkedListUnitTests
             linkedList.Insert(10);
             linkedList.Print();
         }
+
         //Testing behead functionality
         [Fact]
         public void BeheadDoesNotThrowAnExceptionOnEmptyList()
@@ -150,5 +151,7 @@ namespace LinkedListUnitTests
             linkedList.Behead();
             Assert.Equal(20, linkedList.Head.Value);
         }
+
+
     }
 }

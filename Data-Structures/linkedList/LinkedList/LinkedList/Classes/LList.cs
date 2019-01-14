@@ -129,5 +129,103 @@ namespace LinkedList.Classes
                 Head = Head.Next;
             }
         }
+
+        public void Append(int value)
+        {
+            while(Current.Next != null)
+            {
+                Current = Current.Next;
+            }
+            Node newNode = new Node(value);
+            Current.Next = newNode;
+        }
+
+        public void Append(Node newNode)
+        {
+            while (Current.Next != null)
+            {
+                Current = Current.Next;
+            }
+            Current.Next = newNode;
+        }
+
+        public bool InsertBefore(int value, int newValue)
+        {
+            Current = Head;
+            if(Current.Value == newValue)
+            {
+                Insert(newValue);
+                return true;
+            }
+            while(Current.Next != null)
+            {
+                if(Current.Next.Value == value)
+                {
+                    Node newNode = new Node(newValue);
+                    newNode.Next = Current.Next;
+                    Current.Next = newNode;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
+
+        public bool InsertBefore(int value, Node newNode)
+        {
+            Current = Head;
+            if (Current.Value == value)
+            {
+                Insert(newNode);
+                return true;
+            }
+            while (Current.Next != null)
+            {
+                if (Current.Next.Value == value)
+                {
+                    newNode.Next = Current.Next;
+                    Current.Next = newNode;
+                    return true;
+                }
+                else
+                {
+                    Current = Current.Next;
+                }
+            }
+            return false;
+        }
+
+        public bool InsertAfter(int value, int newValue)
+        {
+            Current = Head;
+            while (Current.Next != null)
+            {
+                if (Current.Value == value)
+                {
+                    Node newNode = new Node(newValue);
+                    newNode.Next = Current.Next;
+                    Current.Next = newNode;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
+
+        public bool InsertAfter(int value, Node newNode)
+        {
+            Current = Head;
+            while (Current.Next != null)
+            {
+                if (Current.Value == value)
+                {
+                    newNode.Next = Current.Next;
+                    Current.Next = newNode;
+                    return true;
+                }
+                Current = Current.Next;
+            }
+            return false;
+        }
     }
 }
