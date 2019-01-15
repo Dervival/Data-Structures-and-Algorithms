@@ -164,8 +164,65 @@ namespace LinkedListUnitTests
         }
 
         //Testing insertbefore functionality
-
+        [Fact]
+        public void InsertBeforeReturnsFalseOnFailedInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            Assert.False(linkedList.InsertBefore(20, 20));
+        }
+        [Fact]
+        public void InsertBeforeReturnsTrueOnSuccessfulInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            Assert.True(linkedList.InsertBefore(10, 15));
+        }
+        [Fact]
+        public void InsertBeforeActuallyInsertsBefore()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.InsertBefore(10, 15);
+            Assert.Equal(15, linkedList.Head.Next.Value);
+        }
         //Testing insertafter functionality
+        [Fact]
+        public void InsertAfterReturnsFalseOnFailedInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            Assert.False(linkedList.InsertAfter(20, 20));
+        }
+        [Fact]
+        public void InsertAfterReturnsTrueOnSuccessfulInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            Assert.True(linkedList.InsertAfter(20, 15));
+        }
+        [Fact]
+        public void InsertAfterActuallyInsertsAfter()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.InsertAfter(20, 15);
+            Assert.Equal(15, linkedList.Head.Next.Value);
+        }
         //Testing behead functionality
         [Fact]
         public void BeheadDoesNotThrowAnExceptionOnEmptyList()
