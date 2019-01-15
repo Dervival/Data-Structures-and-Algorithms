@@ -11,7 +11,11 @@ The Linked List is one of the simplest data structures. It consists of a group o
 
 ## API, Approach & Efficiency
 - Insert: Inserts a node at the head of the list. The node can be created in the process or passed in. O(1) space and time impact.
-- Includes: Determines if a value exists within the linked list. O(n) time and O(1) space impact, where n is the number of nodes in the list. 
-- Print: Prints out all elements of the linked list to the console. O(n) time and O(1) space impact, where n is the number of nodes in the list.
-- CountNodes: Returns the number of nodes in the linked list. If the list is empty, returns zero. O(n) time and O(1) space impact, where n is the number of nodes in the list.
-- Behead: Removes the first node from the linked list if the list is not empty. 0(1) time and space impact.
+- Includes: Determines if a value exists within the linked list. O(n) time impact due to the traversal required; O(1) space impact. 
+- Print: Prints out all elements of the linked list to the console. O(n) time impact due to the traversal required; O(1) space impact. 
+- CountNodes: Returns the number of nodes in the linked list. If the list is empty, returns zero. O(n) time impact due to the traversal required; O(1) space impact. 
+- Behead: Removes the first node from the linked list if the list is not empty. 0(1) time impact and space impact.
+- Append: Appends a node to the end of the linked list. O(n) time impact due to the traversal required; O(1) space impact.
+- InsertBefore: Searches for a node with the value given, then inserts a new node before the node containing the found value. Returns true if the insertion was successful, false otherwise. O(n) time impact as the worst case scenario requires a traversal; O(1) space impact.
+- InsertAfter: Searches for a node with the value given, then inserts a new node after the node containing the found value. Returns true if the insertion was successful, false otherwise. O(n) time impact as the worst case scenario requires a traversal; O(1) space impact.
+
