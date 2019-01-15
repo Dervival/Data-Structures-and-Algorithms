@@ -22,6 +22,7 @@ namespace LinkedList
         static void LListExample()
         {
             LList linkedList = new LList();
+            linkedList.Print();
             linkedList.Insert(20);
             linkedList.Insert(10);
             linkedList.Insert(5);

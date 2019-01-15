@@ -124,6 +124,105 @@ namespace LinkedListUnitTests
             linkedList.Insert(10);
             linkedList.Print();
         }
+
+        //Testing append functionality
+        [Fact]
+        public void AppendCanAppendNodeToEmptyList()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Append(testNode);
+            Assert.Equal(1, linkedList.CountNodes());
+        }
+        [Fact]
+        public void AppendCanAppendNodeToNonEmptyList()
+        {
+            Node testNode = new Node(10);
+            LList linkedList = new LList(testNode);
+            Node testNodeTwo = new Node(20);
+            linkedList.Append(testNodeTwo);
+            Assert.Equal(2, linkedList.CountNodes());
+        }
+        [Fact]
+        public void AppendAppendsToEndOfList()
+        {
+            Node testNode = new Node(10);
+            LList linkedList = new LList(testNode);
+            Node testNodeTwo = new Node(20);
+            linkedList.Append(testNodeTwo);
+            Assert.Equal(20, linkedList.Head.Next.Value);
+        }
+        [Fact]
+        public void AppendDoesNotAppendToBeginning()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            Node testNodeTwo = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.Append(testNodeTwo);
+            Assert.NotEqual(20, linkedList.Head.Value);
+        }
+
+        //Testing insertbefore functionality
+        [Fact]
+        public void InsertBeforeReturnsFalseOnFailedInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            Assert.False(linkedList.InsertBefore(20, 20));
+        }
+        [Fact]
+        public void InsertBeforeReturnsTrueOnSuccessfulInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            Assert.True(linkedList.InsertBefore(10, 15));
+        }
+        [Fact]
+        public void InsertBeforeActuallyInsertsBefore()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.InsertBefore(10, 15);
+            Assert.Equal(15, linkedList.Head.Next.Value);
+        }
+        //Testing insertafter functionality
+        [Fact]
+        public void InsertAfterReturnsFalseOnFailedInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            Assert.False(linkedList.InsertAfter(20, 20));
+        }
+        [Fact]
+        public void InsertAfterReturnsTrueOnSuccessfulInsertion()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            Assert.True(linkedList.InsertAfter(20, 15));
+        }
+        [Fact]
+        public void InsertAfterActuallyInsertsAfter()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Insert(testNode);
+            testNode = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.InsertAfter(20, 15);
+            Assert.Equal(15, linkedList.Head.Next.Value);
+        }
         //Testing behead functionality
         [Fact]
         public void BeheadDoesNotThrowAnExceptionOnEmptyList()
@@ -150,5 +249,7 @@ namespace LinkedListUnitTests
             linkedList.Behead();
             Assert.Equal(20, linkedList.Head.Value);
         }
+
+
     }
 }
