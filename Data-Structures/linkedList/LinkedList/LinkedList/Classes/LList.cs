@@ -129,26 +129,50 @@ namespace LinkedList.Classes
                 Head = Head.Next;
             }
         }
-
+        /// <summary>
+        /// Appends a new node containing the value parameter to the end of the linked list.
+        /// </summary>
+        /// <param name="value">Value to be appended to the end of the linked list</param>
         public void Append(int value)
         {
-            while(Current.Next != null)
+            Current = Head;
+            if (Current == null)
+            {
+                Node headNode = new Node(value);
+                Insert(headNode);
+                return;
+            }
+            while (Current.Next != null)
             {
                 Current = Current.Next;
             }
             Node newNode = new Node(value);
             Current.Next = newNode;
         }
-
+        /// <summary>
+        /// Appends a new node to the end of the linked list.
+        /// </summary>
+        /// <param name="newNode">Node to be appended to the end of the linked list.</param>
         public void Append(Node newNode)
         {
+            Current = Head;
+            if(Current == null)
+            {
+                Insert(newNode);
+                return;
+            }
             while (Current.Next != null)
             {
                 Current = Current.Next;
             }
             Current.Next = newNode;
         }
-
+        /// <summary>
+        /// Inserts a new node containing the newValue parameter into a linked list  
+        /// </summary>
+        /// <param name="value">Value of node to be inserted before</param>
+        /// <param name="newValue">Value of node to be inserted</param>
+        /// <returns>Returns true if the value was found and insertion was sucessful, false otherwise</returns>
         public bool InsertBefore(int value, int newValue)
         {
             Current = Head;
@@ -170,7 +194,12 @@ namespace LinkedList.Classes
             }
             return false;
         }
-
+        /// <summary>
+        /// Inserts a node into a linked list before a node with the provided value
+        /// </summary>
+        /// <param name="value">Value of node to be inserted before</param>
+        /// <param name="newNode">Node to be inserted</param>
+        /// <returns>Returns true if the value was found and insertion was sucessful, false otherwise</returns>
         public bool InsertBefore(int value, Node newNode)
         {
             Current = Head;
@@ -194,7 +223,12 @@ namespace LinkedList.Classes
             }
             return false;
         }
-
+        /// <summary>
+        /// Inserts a new node containing the newValue parameter into a linked list after a node with the provided value.  
+        /// </summary>
+        /// <param name="value">Value of node to be inserted after</param>
+        /// <param name="newValue">Value of node to be inserted</param>
+        /// <returns>Returns true if the value was found and insertion was sucessful, false otherwise</returns>
         public bool InsertAfter(int value, int newValue)
         {
             Current = Head;
@@ -211,7 +245,12 @@ namespace LinkedList.Classes
             }
             return false;
         }
-
+        /// <summary>
+        /// Inserts a node into a linked list after a node with the provided value
+        /// </summary>
+        /// <param name="value">Value of node to be inserted after</param>
+        /// <param name="newNode">Node to be inserted</param>
+        /// <returns>Returns true if the value was found and insertion was sucessful, false otherwise</returns>
         public bool InsertAfter(int value, Node newNode)
         {
             Current = Head;

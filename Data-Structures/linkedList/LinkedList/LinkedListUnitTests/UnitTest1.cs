@@ -125,6 +125,47 @@ namespace LinkedListUnitTests
             linkedList.Print();
         }
 
+        //Testing append functionality
+        [Fact]
+        public void AppendCanAppendNodeToEmptyList()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            linkedList.Append(testNode);
+            Assert.Equal(1, linkedList.CountNodes());
+        }
+        [Fact]
+        public void AppendCanAppendNodeToNonEmptyList()
+        {
+            Node testNode = new Node(10);
+            LList linkedList = new LList(testNode);
+            Node testNodeTwo = new Node(20);
+            linkedList.Append(testNodeTwo);
+            Assert.Equal(2, linkedList.CountNodes());
+        }
+        [Fact]
+        public void AppendAppendsToEndOfList()
+        {
+            Node testNode = new Node(10);
+            LList linkedList = new LList(testNode);
+            Node testNodeTwo = new Node(20);
+            linkedList.Append(testNodeTwo);
+            Assert.Equal(20, linkedList.Head.Next.Value);
+        }
+        [Fact]
+        public void AppendDoesNotAppendToBeginning()
+        {
+            LList linkedList = new LList();
+            Node testNode = new Node(10);
+            Node testNodeTwo = new Node(20);
+            linkedList.Insert(testNode);
+            linkedList.Append(testNodeTwo);
+            Assert.NotEqual(20, linkedList.Head.Value);
+        }
+
+        //Testing insertbefore functionality
+
+        //Testing insertafter functionality
         //Testing behead functionality
         [Fact]
         public void BeheadDoesNotThrowAnExceptionOnEmptyList()
