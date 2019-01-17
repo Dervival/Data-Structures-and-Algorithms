@@ -20,7 +20,7 @@ namespace ll_kth_from_end_unitTests
             linkedListTwo.Append(200);
             linkedListTwo.Append(150);
             linkedListTwo.Append(100);
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // 20 -> 200 -> 15 -> 150 -> 10 -> 100;
             Assert.Equal(6, linkedList.CountNodes());
         }
@@ -37,7 +37,7 @@ namespace ll_kth_from_end_unitTests
             linkedListTwo.Append(200);
             linkedListTwo.Append(150);
             linkedListTwo.Append(100);
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // 20 -> 200 -> 15 -> 150 -> 10 -> 100;
             Assert.Equal(20, linkedList.Head.Value);
             Assert.Equal(200, linkedList.Head.Next.Value);
@@ -59,7 +59,7 @@ namespace ll_kth_from_end_unitTests
             linkedListTwo.Append(200);
             linkedListTwo.Append(150);
             linkedListTwo.Append(100);
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // NULL;
             Assert.Equal(0, linkedListTwo.CountNodes());
         }
@@ -75,7 +75,7 @@ namespace ll_kth_from_end_unitTests
             // 200 -> 150;
             linkedListTwo.Append(200);
             linkedListTwo.Append(150);
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // 20 -> 200 -> 15 -> 150 -> 10;
             Assert.Equal(5, linkedList.CountNodes());
         }
@@ -91,7 +91,7 @@ namespace ll_kth_from_end_unitTests
             linkedListTwo.Append(200);
             linkedListTwo.Append(150);
             linkedListTwo.Append(100);
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // 20 -> 200 -> 15 -> 150 -> 100;
             Assert.Equal(5, linkedList.CountNodes());
         }
@@ -105,7 +105,7 @@ namespace ll_kth_from_end_unitTests
             linkedList.Append(10);
             LList linkedListTwo = new LList();
             // Null;
-            Program.MergeRef(linkedList, linkedListTwo);
+            Program.MergeLists(linkedList, linkedListTwo);
             // 20 -> 15 -> 10;
             Assert.Equal(3, linkedList.CountNodes());
         }

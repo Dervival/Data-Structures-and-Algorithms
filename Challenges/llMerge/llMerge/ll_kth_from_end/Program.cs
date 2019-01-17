@@ -21,13 +21,18 @@ namespace ll_merge
             Console.WriteLine("Before Merge:");
             linkedList.Print();
             linkedListTwo.Print();
-            MergeRef(linkedList, linkedListTwo);
+            MergeLists(linkedList, linkedListTwo);
             Console.WriteLine("After Merge:");
             linkedList.Print();
             linkedListTwo.Print();
         }
-
-        public static Node MergeRef(LList linkedListOne, LList linkedListTwo)
+        /// <summary>
+        /// Merges two singly linked lists through mutation. The first linked list exits the function as the merged linked list, and the second linked list becomes empty. The function returns a reference to the head of the first linked list.
+        /// </summary>
+        /// <param name="linkedListOne">The first linked list to be merged. Exits function as the merged linked list.</param>
+        /// <param name="linkedListTwo">The second linked list to be merged. Exits function empty.</param>
+        /// <returns>Returns the head node of the first (merged) linked list.</returns>
+        public static Node MergeLists(LList linkedListOne, LList linkedListTwo)
         {
             if(linkedListTwo.Head == null)
             {
@@ -37,46 +42,12 @@ namespace ll_merge
             Node tmp = linkedListOne.Head;
             while(tmp != null)
             {
-                //linkedListOne.Print();
-                //linkedListTwo.Print();
-                //if (linkedListOne.Current.Next != null)
-                //{
-                //    Console.WriteLine("tmp should point to " + linkedListOne.Current.Next.Value);
-                //}
-                //else
-                //{
-                //    Console.WriteLine("tmp should point to null");
-                //}
                 tmp = linkedListOne.Current.Next;
-                //if (linkedListOne.Current.Next != null)
-                //{
-                //    Console.WriteLine("tmp value = " + tmp.Value);
-                //}
-                //else
-                //{
-                //    Console.WriteLine("tmp is null");
-                //}
-                //Console.WriteLine("current.next should point to " + linkedListTwo.Head.Value);
                 linkedListOne.Current.Next = linkedListTwo.Head;
-                //Console.WriteLine("current.next = " + linkedListTwo.Head.Value);
                 linkedListTwo.Head = tmp;
                 linkedListOne.Current = linkedListOne.Current.Next;
             }
             return linkedListOne.Head;
         }
-
-        //public static LList MergeList(LList linkedListOne, LList linkedListTwo)
-        //{
-        //    linkedListOne.Current = linkedListOne.Head;
-        //    Node tmp = linkedListOne.Head;
-        //    while (tmp != null)
-        //    {
-        //        tmp = linkedListOne.Current.Next;
-        //        linkedListOne.Current.Next = linkedListTwo.Head;
-        //        linkedListTwo.Head = tmp;
-        //        linkedListOne.Current = linkedListOne.Current.Next;
-        //    }
-        //    return linkedListOne;
-        //}
     }
 }
