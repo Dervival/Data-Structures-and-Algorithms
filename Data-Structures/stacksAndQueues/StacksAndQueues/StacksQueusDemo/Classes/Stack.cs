@@ -6,22 +6,41 @@ namespace StacksAndQueues.Classes
 {
     class Stack
     {
-        // Top Reference so we know where the top is
+        // Top Reference so we know where the top is. Similar to the Head node of a linked list.
         public Node Top { get; set; }
 
 
-        //Give us a stack with at least one node in it.
+        /// <summary>
+        /// Creates a new stack with an initial node provided by the user.  
+        /// </summary>
+        /// <param name="node">The node to initialize the stack with. </param>
         public Stack(Node node)
         {
             Top = node;
         }
 
-        // Give us an empty stack
+        /// <summary>
+        /// Creates a new stack with an initial node whose value is provided by the user.  
+        /// </summary>
+        /// <param name="node">The value of a node to initialize the stack with. </param>
+        public Stack(int value)
+        {
+            Node newNode = new Node(value);
+            Top = newNode;
+        }
+
+        /// <summary>
+        /// Creates a new empty stack. Best practice is to avoid using this and initialize with a starting node - an empty stack will throw a null reference exception by design if it is peeked or popped.
+        /// </summary>
         public Stack()
         {
 
         }
-        // push
+        
+        /// <summary>
+        /// Pushes a node containing the value provided to the top of the stack.
+        /// </summary>
+        /// <param name="value">The value to be added to the node that is the new top of the stack.</param>
         public void Push(int value)
         {
             Node node = new Node(value);
@@ -29,25 +48,37 @@ namespace StacksAndQueues.Classes
             Top = node;
         }
 
-        // pop
+        /// <summary>
+        /// Pushes a node provided by a user to the top of the stack. If that node pointed to any other nodes, that reference is overwritten.
+        /// </summary>
+        /// <param name="newNode">A previously created node to be added to the top of the stack.</param>
+        public void Push(Node newNode)
+        {
+            newNode.Next = Top;
+            Top = newNode;
+        }
+
+        /// <summary>
+        /// Removes and returns the top node of the stack. If the stack is empty, a null reference exception will be thrown.
+        /// </summary>
+        /// <returns>The top node of the stack being popped.</returns>
         public Node Pop()
         {
-            // create a temp
+            // create a temporary reference to the node to be popped off the stack
             Node temp = Top;
-            //set top to the next node in the stack
+            // setting Top to the next node in the stack means we do not need to retain the reference on the returned node
             Top = Top.Next;
-            // clear the reference of next on the temp
+            // clear the reference of next on the temp for sanitation reasons; if other actions do not clear the .Next property of the returned node, there can be unsafe access to the stack being popped from
             temp.Next = null;
-            // return the node
             return temp;
         }
 
-
-        // peek
-
+        /// <summary>
+        /// Returns the top node of the stack. Does not remove the top node. If the stack is empty, a null reference exception will be thrown.
+        /// </summary>
+        /// <returns>The top node of the stack being peeked.</returns>
         public Node Peek()
         {
-            // Show us the top node of a stack
             return Top;
         }
     }
