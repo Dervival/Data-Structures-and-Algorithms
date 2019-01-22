@@ -23,6 +23,17 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
+        /// Basic implementation of a queue with an initial node with a given value. 
+        /// </summary>
+        /// <param name="node">Value of node to instantiate the queue with.</param>
+        public Queue(int value)
+        {
+            Node newNode = new Node(value);
+            Front = newNode;
+            Rear = newNode;
+        }
+
+        /// <summary>
         /// Adds a node with the given value to the rear of the queue. Since nodes in a queue point backwards (that is, the Front node points backwards to the next node in line, and the Rear node points to null), we need to assign the previous rear to point to the new rear as the next node, and the rear reference needs to be reassigned to point to the newly created node.
         /// </summary>
         /// <param name="value">Value of the node to be added to the rear of the queue.</param>

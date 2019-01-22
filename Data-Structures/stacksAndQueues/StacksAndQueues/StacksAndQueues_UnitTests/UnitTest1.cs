@@ -133,5 +133,107 @@ namespace StacksAndQueues_UnitTests
             Node newNode = emptyStack.Peek();
             Assert.Null(newNode);
         }
+
+        [Fact]
+        public void QueueCanBeInstantiatedWithValue()
+        {
+            Queue testQueue = new Queue(10);
+            Assert.Equal(10, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void QueueCanBeInstantiatedWithNode()
+        {
+            Node newNode = new Node(10);
+            Queue testQueue = new Queue(newNode);
+            Assert.Equal(10, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void FrontAndRearMatchWhenQueueIsInstantiated()
+        {
+            Queue testQueue = new Queue(100);
+            Assert.Equal(testQueue.Rear.Value, testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void EnqueueDoesNotModifyFrontNodeOfNonEmptyQueue()
+        {
+            Node frontNode = new Node(7);
+            Node rearNode = new Node(99);
+            Queue testQueue = new Queue(frontNode);
+            testQueue.Enqueue(rearNode);
+            Assert.True(frontNode.Value == testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void EnqueueCanQueueNodes()
+        {
+            Queue testQueue = new Queue(10);
+            Node newNode = new Node(100);
+            testQueue.Enqueue(newNode);
+            Assert.Equal(100, testQueue.Rear.Value);
+        }
+
+        [Fact]
+        public void EnqueueAddsBehindTheFrontNodeOfQueueWithOneElement()
+        {
+            Node frontNode = new Node(7);
+            Node rearNode = new Node(99);
+            Queue testQueue = new Queue(frontNode);
+            testQueue.Enqueue(rearNode);
+            Assert.True(rearNode.Value == testQueue.Front.Next.Value);
+        }
+
+        [Fact]
+        public void DequeueReturnsFrontNode()
+        {
+            Queue testQueue = new Queue(10);
+            Node newNode = testQueue.Dequeue();
+            Assert.Equal(10, newNode.Value);
+        }
+
+        [Fact]
+        public void DequeueMutatesFrontNode()
+        {
+            Queue testQueue = new Queue(10);
+            testQueue.Enqueue(5);
+            Node newNode = testQueue.Dequeue();
+            Assert.False(newNode.Value == testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void DequeueThrowsNullReferenceExceptionOnEmptyQueue()
+        {
+            Queue testQueue = new Queue(0);
+            testQueue.Dequeue();
+            Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
+        }
+
+        [Fact]
+        public void PeekReturnsFrontNode()
+        {
+            Queue testQueue = new Queue(10);
+            Node newNode = testQueue.Peek();
+            Assert.Equal(10, newNode.Value);
+        }
+
+        [Fact]
+        public void PeekDoesNotMutateFrontNode()
+        {
+            Queue testQueue = new Queue(10);
+            testQueue.Enqueue(5);
+            Node newNode = testQueue.Peek();
+            Assert.True(newNode.Value == testQueue.Front.Value);
+        }
+
+        [Fact]
+        public void PeekDoesNotThrowsNullReferenceExceptionOnEmptyQueue()
+        {
+            Queue testQueue = new Queue(0);
+            testQueue.Dequeue();
+            Node newNode = testQueue.Peek();
+            Assert.Null(newNode);
+        }
     }
 }
