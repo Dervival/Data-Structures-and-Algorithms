@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "stacksAndQueues", "StacksQueusDemo\stacksAndQueues.csproj", "{68BC48D8-E1C6-4F20-9845-214DBC2DE9FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StacksAndQueues_UnitTests", "StacksAndQueues_UnitTests\StacksAndQueues_UnitTests.csproj", "{BA256225-866F-4DCF-8DA2-1CE7A88EE2B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{68BC48D8-E1C6-4F20-9845-214DBC2DE9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68BC48D8-E1C6-4F20-9845-214DBC2DE9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68BC48D8-E1C6-4F20-9845-214DBC2DE9FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA256225-866F-4DCF-8DA2-1CE7A88EE2B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA256225-866F-4DCF-8DA2-1CE7A88EE2B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA256225-866F-4DCF-8DA2-1CE7A88EE2B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA256225-866F-4DCF-8DA2-1CE7A88EE2B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

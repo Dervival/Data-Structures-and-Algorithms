@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Stack
+    public class Stack
     {
         // Top Reference so we know where the top is. Similar to the Head node of a linked list.
         public Node Top { get; set; }
@@ -74,7 +74,7 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
-        /// Returns the top node of the stack. Does not remove the top node. If the stack is empty, a null reference exception will be thrown.
+        /// Returns the top node of the stack. Does not remove the top node.
         /// </summary>
         /// <returns>The top node of the stack being peeked.</returns>
         public Node Peek()

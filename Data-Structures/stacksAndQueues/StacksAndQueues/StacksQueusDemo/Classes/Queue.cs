@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StacksAndQueues.Classes
 {
-    class Queue
+    public class Queue
     {
         /// <summary>
         /// A queue needs both a reference to the front and rear of the queue, since we enqueue from the rear and dequeue/peek from the front; if we only had one or the other - missing either reference makes it impossible to do either in constant time
