@@ -34,14 +34,34 @@ namespace StacksAndQueues.Classes
         }
 
         /// <summary>
+        /// Basic construction of an empty queue.
+        /// </summary>
+        public Queue()
+        {
+            Front = null;
+            Rear = null;
+        }
+
+        /// <summary>
         /// Adds a node with the given value to the rear of the queue. Since nodes in a queue point backwards (that is, the Front node points backwards to the next node in line, and the Rear node points to null), we need to assign the previous rear to point to the new rear as the next node, and the rear reference needs to be reassigned to point to the newly created node.
         /// </summary>
         /// <param name="value">Value of the node to be added to the rear of the queue.</param>
         public void Enqueue(int value)
         {
             Node node = new Node(value);
-            Rear.Next = node;
-            Rear = node;
+            if (Front == null)
+            {
+                Front = node;
+            }
+            if (Rear == null)
+            {
+                Rear = node;
+            }
+            else {
+                Rear.Next = node;
+                Rear = node;
+            }
+            
         }
 
         /// <summary>
@@ -60,6 +80,19 @@ namespace StacksAndQueues.Classes
         /// <returns>The node representing the previous front of the queue.</returns>
         public Node Dequeue()
         {
+            if(Front == null)
+            {
+                return null;
+            }
+            //Only occurs when queue has one member
+            else if(Front == Rear)
+            {
+                Node singleton = Front;
+                Front = null;
+                Rear = null;
+                singleton.Next = null;
+                return singleton;
+            }
             // create a temp to keep track of the original front
             Node temp = Front;
             // change our front reference to the next node

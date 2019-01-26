@@ -203,11 +203,10 @@ namespace StacksAndQueues_UnitTests
         }
 
         [Fact]
-        public void DequeueThrowsNullReferenceExceptionOnEmptyQueue()
+        public void DequeueReturnsNullOnEmptyQueue()
         {
-            Queue testQueue = new Queue(0);
-            testQueue.Dequeue();
-            Assert.Throws<NullReferenceException>(() => testQueue.Dequeue());
+            Queue testQueue = new Queue();
+            Assert.Null(testQueue.Dequeue());
         }
 
         [Fact]

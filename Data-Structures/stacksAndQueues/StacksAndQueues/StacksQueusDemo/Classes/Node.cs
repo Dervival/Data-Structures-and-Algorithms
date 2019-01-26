@@ -22,4 +22,19 @@ namespace StacksAndQueues.Classes
         }
     }
 
+    public class Node<T>
+    {
+        public T Value { get; set; }
+        public Node<T> Next { get; set; }
+
+        /// <summary>
+        /// Construction of a node with an initial value; means we must initialize with an integer so no nodes containing null.
+        /// </summary>
+        /// <param name="value">The integer value to initialize the node with.</param>
+        public Node(T value)
+        {
+            Value = value;
+        }
+    }
+
 }
