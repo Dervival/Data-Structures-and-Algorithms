@@ -10,3 +10,5 @@ Repository for work for the Code Fellows 401 dn-401d6 dotnet course
 1. [Challenge: Merge Two Singly Linked Lists](Challenges/llMerge)
 1. [Data Structure: Stacks and Queues](Data-Structures/stacksAndQueues)
 1. [Challenge: Implement a Pseudoqueue with Two Stacks](Challenges/queue_with_stacks)
+1. [Challenge: Implement a FIFO Animal Shelter With Adoption Preference](Challenges/fifo_animal_shelter)
+1. [Challenge: Determine if a String Has Balanced Brackets In It](Challenges/bracket_val)

@@ -7,8 +7,19 @@ namespace bracketVal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            MultiBracketValidation("Hello World");
+            Console.WriteLine("This application contains a function for validating multiple pairs of brackets in a string to see if they're balanced. For instance:");
+            string[] bracketStrings = new string[] {"","{}", "{}(){}", "()[[Extra Characters]]", "(){}[[]]", "{}{Code}[Fellows](())", "[({}]", "(](", "{(})" };
+            foreach( string bracketString in bracketStrings)
+            {
+                if (MultiBracketValidation(bracketString))
+                {
+                    Console.WriteLine($"\"{bracketString}\" is an example of balanced brackets.");
+                }
+                else
+                {
+                    Console.WriteLine($"\"{bracketString}\" is an example of unbalanced brackets.");
+                }
+            }
         }
 
         public static bool MultiBracketValidation(string inputString)
@@ -51,8 +62,6 @@ namespace bracketVal
                     default:
                         break;
                 }
-                char character = inputString[i];
-                Console.WriteLine(character);
             }
             if(bracketStack.Peek() != null)
             {
