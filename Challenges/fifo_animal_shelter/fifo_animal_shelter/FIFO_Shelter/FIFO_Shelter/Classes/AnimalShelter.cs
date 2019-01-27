@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Text;
+using StacksAndQueues.Classes;
 
 namespace FIFO_Shelter.Classes
 {
-    class AnimalShelter
+    public class AnimalShelter
     {
-        public Queue<Animal> InQueue;
-        public Queue<Animal> OutQueue;
+        public Queue<Animal> InQueue = new Queue<Animal>();
+        public Queue<Animal> OutQueue = new Queue<Animal>();
 
         /// <summary>
         /// Enqueues an animal into the InQueue, which is the "main" queue of the AnimalShelter. All animals here are kept in a first-come, first-removed basis - this order is kept during the selective dequeue process through the use of the helper queue OutQueue.
@@ -32,7 +33,7 @@ namespace FIFO_Shelter.Classes
             {
                 return null;
             }
-            return InQueue.Dequeue();
+            return InQueue.Dequeue().Value;
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace FIFO_Shelter.Classes
                 return null;
             }
             //Else, dequeue animals from the InQueue into the OutQueue until we either hit the end of the InQueue or we find an animal whose type matches the preference
-            while(InQueue.Peek() != null && InQueue.Peek().Type != pref)
+            while(InQueue.Peek() != null && InQueue.Peek().Value.Type != pref)
             {
                 OutQueue.Enqueue(InQueue.Dequeue());
             }
@@ -57,7 +58,7 @@ namespace FIFO_Shelter.Classes
             //If the queue is not empty, then the first while loop exited because we found a valid match - dequeue from the InQueue and save it in the temporary animal variable 
             if(InQueue.Peek() != null)
             {
-                adoptedAnimal = InQueue.Dequeue();
+                adoptedAnimal = InQueue.Dequeue().Value;
             }
             //If there's any animals left in the InQueue after the found animal has been dequeued, also shift them into the OutQueue
             while (InQueue.Peek() != null)

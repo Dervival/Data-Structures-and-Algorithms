@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FIFO_Shelter.Classes
 {
-    class Cat : Animal
+    public class Cat : Animal
     {
         public override string Type { get; set; }
         public override string Name { get; set; }

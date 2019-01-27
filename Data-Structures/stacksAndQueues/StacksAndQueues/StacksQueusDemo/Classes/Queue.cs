@@ -52,10 +52,9 @@ namespace StacksAndQueues.Classes
             if (Front == null)
             {
                 Front = node;
-            }
-            if (Rear == null)
-            {
+                Front.Next = null;
                 Rear = node;
+                Rear.Next = null;
             }
             else {
                 Rear.Next = node;
@@ -70,8 +69,18 @@ namespace StacksAndQueues.Classes
         /// <param name="value">Previously created node to be added to the rear of the queue.</param>
         public void Enqueue(Node<T> newNode)
         {
-            Rear.Next = newNode;
-            Rear = newNode;
+            if (Front == null)
+            {
+                Front = newNode;
+                Front.Next = null;
+                Rear = newNode;
+                Rear.Next = null;
+            }
+            else
+            {
+                Rear.Next = newNode;
+                Rear = newNode;
+            }
         }
 
         /// <summary>
@@ -80,12 +89,12 @@ namespace StacksAndQueues.Classes
         /// <returns>The node representing the previous front of the queue.</returns>
         public Node<T> Dequeue()
         {
-            if(Front == null)
+            if (Front == null)
             {
                 return null;
             }
             //Only occurs when queue has one member
-            else if(Front == Rear)
+            else if (Front.Next == null)
             {
                 Node<T> singleton = Front;
                 Front = null;
@@ -93,15 +102,17 @@ namespace StacksAndQueues.Classes
                 singleton.Next = null;
                 return singleton;
             }
-            // create a temp to keep track of the original front
-            Node<T> temp = Front;
-            // change our front reference to the next node
-            Front = Front.Next;
-            // clear our next reference for standalone
-            temp.Next = null;
-
-            //return the temp to the user
-            return temp;
+            else
+            {
+                // create a temp to keep track of the original front
+                Node<T> temp = Front;
+                // change our front reference to the next node
+                Front = Front.Next;
+                // clear our next reference for standalone
+                temp.Next = null;
+                //return the temp to the user
+                return temp;
+            }
         }
 
         /// <summary>

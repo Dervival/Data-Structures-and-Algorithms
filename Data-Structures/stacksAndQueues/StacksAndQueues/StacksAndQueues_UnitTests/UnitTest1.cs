@@ -235,5 +235,14 @@ namespace StacksAndQueues_UnitTests
             Node<int> newNode = testQueue.Peek();
             Assert.Null(newNode);
         }
+
+        [Fact]
+        public void CanIActuallyEnqueueToEmptyQueue()
+        {
+            Queue<int> newQueue = new Queue<int>();
+            newQueue.Enqueue(2);
+            int temp = newQueue.Dequeue().Value;
+            Assert.True(temp == 2);
+        }
     }
 }
