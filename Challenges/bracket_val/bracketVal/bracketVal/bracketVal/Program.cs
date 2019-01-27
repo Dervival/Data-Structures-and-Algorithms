@@ -5,6 +5,10 @@ namespace bracketVal
 {
     public class Program
     {
+
+        /// <summary>
+        /// Main method to show off the functionality of the MultiBracketValidation method in the console.
+        /// </summary>
         static void Main(string[] args)
         {
             Console.WriteLine("This application contains a function for validating multiple pairs of brackets in a string to see if they're balanced. For instance:");
@@ -22,6 +26,11 @@ namespace bracketVal
             }
         }
 
+        /// <summary>
+        /// A method to determine if a string has balanced brackets in it, using a stack. An empty string is considered balanced. If a string has an opening bracket of a type with no corresponding closing bracket later on in the string, it is considered unbalanced. If a string has a closing bracket of a type, and the most recently seen bracket is not an opening bracket of the same type (ex: ')' and '(' or there are no previously seen brackets, it is considered unbalanced. Otherwise, the string is considered balanced.
+        /// </summary>
+        /// <param name="inputString">The string whose contents are to be evaluated for bracket balance.</param>
+        /// <returns>True if the brackets are balanced, false if they are not.</returns>
         public static bool MultiBracketValidation(string inputString)
         {
             Stack bracketStack = new Stack();
