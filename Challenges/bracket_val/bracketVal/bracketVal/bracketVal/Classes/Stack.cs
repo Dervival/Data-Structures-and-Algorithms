@@ -23,7 +23,7 @@ namespace bracketVal.Classes
         /// Creates a new stack with an initial node whose value is provided by the user.  
         /// </summary>
         /// <param name="node">The value of a node to initialize the stack with. </param>
-        public Stack(string value)
+        public Stack(char value)
         {
             Node newNode = new Node(value);
             Top = newNode;
@@ -41,7 +41,7 @@ namespace bracketVal.Classes
         /// Pushes a node containing the value provided to the top of the stack.
         /// </summary>
         /// <param name="value">The value to be added to the node that is the new top of the stack.</param>
-        public void Push(string value)
+        public void Push(char value)
         {
             Node node = new Node(value);
             node.Next = Top;

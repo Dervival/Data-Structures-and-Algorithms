@@ -9,14 +9,14 @@ namespace bracketVal.Classes
     /// </summary>
     public class Node
     {
-        public string Value { get; set; }
+        public char Value { get; set; }
         public Node Next { get; set; }
 
         /// <summary>
         /// Construction of a node with an initial value; means we must initialize with an integer so no nodes containing null.
         /// </summary>
         /// <param name="value">The integer value to initialize the node with.</param>
-        public Node(string value)
+        public Node(char value)
         {
             Value = value;
         }
