@@ -273,5 +273,50 @@ namespace TreeUnitTests
             List<int> sortedList = new List<int>(){ 4,10,100,200,300,999};
             Assert.Equal(sortedList, treeList);
         }
+
+        [Fact]
+        public void ContainsReturnsFalseOnAnEmptyBST()
+        {
+            BinarySearchTree newTree = new BinarySearchTree();
+            Assert.False(newTree.Contains(10));
+        }
+
+        [Fact]
+        public void ContainsReturnsTrueWhenSearchingForRootValue()
+        {
+            BinarySearchTree newTree = new BinarySearchTree(100);
+            Assert.True(newTree.Contains(100));
+        }
+
+        [Fact]
+        public void ContainsReturnsTrueWhenSearchingForKnownValueInRightSubTree()
+        {
+            BinarySearchTree newTree = new BinarySearchTree(100);
+            newTree.Add(150);
+            newTree.Add(125);
+            Assert.True(newTree.Contains(125));
+        }
+
+        [Fact]
+        public void ContainsReturnsTrueWhenSearchingForKnownValueInLeftSubTree()
+        {
+            BinarySearchTree newTree = new BinarySearchTree(100);
+            newTree.Add(50);
+            newTree.Add(75);
+            Assert.True(newTree.Contains(75));
+        }
+
+        [Fact]
+        public void ContainsReturnsFalseWhenSearchingForKnownMissingValue()
+        {
+            BinarySearchTree newTree = new BinarySearchTree(100);
+            newTree.Add(25);
+            newTree.Add(50);
+            newTree.Add(75);
+            newTree.Add(150);
+            newTree.Add(125);
+            newTree.Add(175);
+            Assert.False(newTree.Contains(99));
+        }
     }
 }
