@@ -3,14 +3,14 @@ using Tree.Classes;
 
 namespace fizzBuzzTree
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
         }
 
-        static BinaryTree<object> FizzBuzzTree(BinaryTree<object> binaryTree)
+        public static BinaryTree<object> FizzBuzzTree(BinaryTree<object> binaryTree)
         {
             if(binaryTree.Root == null)
             {
@@ -20,9 +20,35 @@ namespace fizzBuzzTree
             return binaryTree;
         }
 
-        static void FizzBuzzTree(Node<object> root)
+        public static void FizzBuzzTree(Node<object> root)
         {
-            
+            //Pre-order traversal suffices - we only need a traversal method, not necessarily 
+            if (root != null)
+            {
+                if(Int32.TryParse(root.Value.ToString(), out int value))
+                {
+                    if(value % 15 == 0)
+                    {
+                        root.Value = "FizzBuzz";
+                    }
+                    else if (value % 5 == 0)
+                    {
+                        root.Value = "Buzz";
+                    }
+                    else if (value % 3 == 0)
+                    {
+                        root.Value = "Fizz";
+                    }
+                }
+                if (root.LeftChild != null)
+                {
+                    FizzBuzzTree(root.LeftChild);
+                }
+                if (root.RightChild != null)
+                {
+                    FizzBuzzTree(root.RightChild);
+                }
+            }
         }
     }
 }
