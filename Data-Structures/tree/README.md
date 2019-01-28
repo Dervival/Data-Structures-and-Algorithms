@@ -24,4 +24,6 @@ Binary Tree:
 
 
 Binary Search Tree:
-- Not currently implemented.
+- Add: adds an integer value to the binary search tree while maintaining the property that all children and descendants to the left of the root node of a BST have values that are less than that of the root node, and all children and descendants to the right of the root of a BST have equal or greater values than the root node. No return type. Big O Time impact: O(log(n)) // Space impact: O(1). Because we have an ordered binary search tree, each traversal/check covers double the nodes than the previous check did - that is, doubling the number of nodes (assuming a reasonably balanced tree...) will result in only one or two more checks, which implies a growth of O(log(n)). We only generate a new node and a boolean in this process regardless of the size of the tree, since no recursion is used, giving us constant space impact.
+
+- Contains: Determines whether or not an integer exists in the given tree; if so, returns true, if not, returns false. Big O Time impact: O(log(n)) // Space impact: O(1). Similar to the add functionality, we can leverage the fact that there is some internal sorted structure to require only one check on every level of the tree, resulting in O(log(n)) space impact. We only generate a new node and a boolean in this process regardless of the size of the tree as no recursion is used, giving us constant space impact.
