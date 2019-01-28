@@ -60,26 +60,31 @@ namespace Tree.Classes
             //Pre-order traversal - evaluate the root, then everything to the left of the root, then evaluate everything to the right.
             if (root != null)
             {
-                PreOrderList.Add(Root.Value);
-            }
-            if (root.LeftChild != null) {
-                List<T> LeftTreeList = PreOrderTraversal(root.LeftChild);
-                foreach(T value in LeftTreeList)
+                PreOrderList.Add(root.Value);
+                if (root.LeftChild != null)
                 {
-                    PreOrderList.Add(value);
+                    List<T> LeftTreeList = PreOrderTraversal(root.LeftChild);
+                    foreach (T value in LeftTreeList)
+                    {
+                        PreOrderList.Add(value);
+                    }
                 }
-            }
-            if (Root.RightChild != null)
-            {
-                List<T> RightTreeList = PreOrderTraversal(root.RightChild);
-                foreach (T value in RightTreeList)
+                if (root.RightChild != null)
                 {
-                    PreOrderList.Add(value);
+                    List<T> RightTreeList = PreOrderTraversal(root.RightChild);
+                    foreach (T value in RightTreeList)
+                    {
+                        PreOrderList.Add(value);
+                    }
                 }
             }
             return PreOrderList;
         }
 
+        /// <summary>
+        /// Default in-order depth-first search of a binary tree. If no parameter is given, assume the root of the target the DFS is being called upon is the intended target. 
+        /// </summary>
+        /// <returns>A list of values of type T, representing the values accessed in the tree during the in-order search in order of when each node was evaluated.</returns>
         public List<T> InOrderTraversal()
         {
             if (Root == null)
@@ -93,39 +98,82 @@ namespace Tree.Classes
         /// In-order depth-first search of a binary tree, starting from the given binary tree node.
         /// </summary>
         /// <param name="root">The node to begin the search from.</param>
-        /// <returns></returns>
+        /// <returns>A list of values of type T, representing the values accessed in the tree during the in-order search in order of when each node was evaluated.</returns>
         public List<T> InOrderTraversal(Node<T> root)
         {
             List<T> InOrderList = new List<T>();
 
             //Pre-order traversal - evaluate the root, then everything to the left of the root, then evaluate everything to the right.
-            
-            if (root.LeftChild != null)
-            {
-                List<T> LeftTreeList = InOrderTraversal(root.LeftChild);
-                foreach (T value in LeftTreeList)
-                {
-                    InOrderList.Add(value);
-                }
-            }
             if (root != null)
             {
-                InOrderList.Add(Root.Value);
-            }
-            if (Root.RightChild != null)
-            {
-                List<T> RightTreeList = InOrderTraversal(root.RightChild);
-                foreach (T value in RightTreeList)
+                if (root.LeftChild != null)
                 {
-                    InOrderList.Add(value);
+                    List<T> LeftTreeList = InOrderTraversal(root.LeftChild);
+                    foreach (T value in LeftTreeList)
+                    {
+                        InOrderList.Add(value);
+                    }
+                }
+
+                InOrderList.Add(root.Value);
+
+                if (root.RightChild != null)
+                {
+                    List<T> RightTreeList = InOrderTraversal(root.RightChild);
+                    foreach (T value in RightTreeList)
+                    {
+                        InOrderList.Add(value);
+                    }
                 }
             }
             return InOrderList;
         }
 
+
+        /// <summary>
+        /// Default post-order depth-first search of a binary tree. If no parameter is given, assume the root of the target the DFS is being called upon is the intended target. 
+        /// </summary>
+        /// <returns>A list of values of type T, representing the values accessed in the tree during the post-order search in order of when each node was evaluated.</returns>
         public List<T> PostOrderTraversal()
         {
+            if (Root == null)
+            {
+                return null;
+            }
+            return PostOrderTraversal(Root);
+        }
 
+        /// <summary>
+        /// Post-order depth-first search of a binary tree, starting from the given binary tree node.
+        /// </summary>
+        /// <param name="root">The node to begin the search from.</param>
+        /// <returns>A list of values of type T, representing the values accessed in the tree during the post-order search in order of when each node was evaluated.</returns>
+        public List<T> PostOrderTraversal(Node<T> root)
+        {
+            List<T> PostOrderList = new List<T>();
+
+            //Post-order traversal - evaluate everything to the left of the root, then evaluate everything to the right, then evaluate the node.
+            if (root != null)
+            {
+                if (root.LeftChild != null)
+                {
+                    List<T> LeftTreeList = PostOrderTraversal(root.LeftChild);
+                    foreach (T value in LeftTreeList)
+                    {
+                        PostOrderList.Add(value);
+                    }
+                }
+                if (root.RightChild != null)
+                {
+                    List<T> RightTreeList = PostOrderTraversal(root.RightChild);
+                    foreach (T value in RightTreeList)
+                    {
+                        PostOrderList.Add(value);
+                    }
+                }
+                PostOrderList.Add(root.Value);
+            }
+            return PostOrderList;
         }
 
 
