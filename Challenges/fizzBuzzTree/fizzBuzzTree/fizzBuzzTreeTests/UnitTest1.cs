@@ -28,5 +28,31 @@ namespace fizzBuzzTreeTests
             fizzBuzzTree.Program.FizzBuzzTree(newTree);
             Assert.True((int)newTree.Root.Value == value);
         }
+
+        [Fact]
+        public void FizzBuzzCanModifyLeftChildren()
+        {
+            BinaryTree<object> binaryTree = new BinaryTree<object>(7);
+            binaryTree.Root.LeftChild = new Node<object>(6);
+            binaryTree.Root.LeftChild.LeftChild = new Node<object>(2);
+            binaryTree.Root.LeftChild.RightChild = new Node<object>(15);
+            fizzBuzzTree.Program.FizzBuzzTree(binaryTree);
+            Assert.True((string)binaryTree.Root.LeftChild.Value == "Fizz");
+            Assert.True((int)binaryTree.Root.LeftChild.LeftChild.Value == 2);
+            Assert.True((string)binaryTree.Root.LeftChild.RightChild.Value == "FizzBuzz");
+        }
+
+        [Fact]
+        public void FizzBuzzCanModifyRightChildren()
+        {
+            BinaryTree<object> binaryTree = new BinaryTree<object>(7);
+            binaryTree.Root.RightChild = new Node<object>(6);
+            binaryTree.Root.RightChild.LeftChild = new Node<object>(2);
+            binaryTree.Root.RightChild.RightChild = new Node<object>(15);
+            fizzBuzzTree.Program.FizzBuzzTree(binaryTree);
+            Assert.True((string)binaryTree.Root.RightChild.Value == "Fizz");
+            Assert.True((int)binaryTree.Root.RightChild.LeftChild.Value == 2);
+            Assert.True((string)binaryTree.Root.RightChild.RightChild.Value == "FizzBuzz");
+        }
     }
 }
