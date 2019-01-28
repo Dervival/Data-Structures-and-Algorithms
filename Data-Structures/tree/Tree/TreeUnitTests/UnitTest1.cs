@@ -230,5 +230,48 @@ namespace TreeUnitTests
             Assert.Null(emptyTree.PostOrderTraversal());
         }
 
+        [Fact]
+        public void AddCanAddToEmptyBinarySearchTree()
+        {
+            BinarySearchTree newTree = new BinarySearchTree();
+            newTree.Add(100);
+            Assert.Equal(100, newTree.Root.Value);
+        }
+
+        [Fact]
+        public void AddCanAddToNonEmptyBinarySearchTree()
+        {
+            BinarySearchTree newTree = new BinarySearchTree();
+            newTree.Add(100);
+            newTree.Add(50);
+            newTree.Add(75);
+            Assert.Equal(50, newTree.Root.LeftChild.Value);
+            Assert.Equal(75, newTree.Root.LeftChild.RightChild.Value);
+        }
+
+        [Fact]
+        public void AddCanAddDuplicateValuesToTheRightInBST()
+        {
+            BinarySearchTree newTree = new BinarySearchTree();
+            newTree.Add(100);
+            newTree.Add(50);
+            newTree.Add(50);
+            Assert.Equal(50, newTree.Root.LeftChild.Value);
+            Assert.Equal(50, newTree.Root.LeftChild.RightChild.Value);
+        }
+
+        [Fact]
+        public void InOrderTraversalOfBSTReturnsOrderedList()
+        {
+            BinarySearchTree newTree = new BinarySearchTree(100);
+            newTree.Add(200);
+            newTree.Add(300);
+            newTree.Add(999);
+            newTree.Add(10);
+            newTree.Add(4);
+            List<int> treeList = newTree.InOrderTraversal();
+            List<int> sortedList = new List<int>(){ 4,10,100,200,300,999};
+            Assert.Equal(sortedList, treeList);
+        }
     }
 }
