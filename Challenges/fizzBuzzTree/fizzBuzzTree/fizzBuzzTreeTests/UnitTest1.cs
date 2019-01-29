@@ -6,6 +6,13 @@ namespace fizzBuzzTreeTests
 {
     public class UnitTest1
     {
+        [Fact]
+        public void FizzBuzzTreeWorksOnEmptyTree()
+        {
+            BinaryTree<object> emptyTree = new BinaryTree<object>();
+            Assert.Null(fizzBuzzTree.Program.FizzBuzzTree(emptyTree).Root);
+        }
+
         [Theory]
         [InlineData(5, "Buzz")]
         [InlineData(10, "Buzz")]
