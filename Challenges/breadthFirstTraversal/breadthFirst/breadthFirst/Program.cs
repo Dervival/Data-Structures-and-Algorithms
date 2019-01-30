@@ -5,7 +5,7 @@ using StacksAndQueues.Classes;
 
 namespace breadthFirst
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -38,7 +38,7 @@ namespace breadthFirst
         /// Traverses a binary tree of integer values and prints out their value in order of when they were visited. Since this is a void method, this cannot be tested against directly; creating a helper function below that can actually be tested against.
         /// </summary>
         /// <param name="binaryTree">The tree to be traversed and printed out.</param>
-        static void BreadthFirstPrint(BinaryTree<int> binaryTree)
+        public static void BreadthFirstPrint(BinaryTree<int> binaryTree)
         {
             if(binaryTree.Root == null)
             {
@@ -67,7 +67,7 @@ namespace breadthFirst
         /// </summary>
         /// <param name="binaryTree">The tree to be traversed breadthFirst.</param>
         /// <returns>A list of integers of the values printed out, in order of when they were accessed.</returns>
-        static List<int> BreadthFirstList(BinaryTree<int> binaryTree)
+        public static List<int> BreadthFirstList(BinaryTree<int> binaryTree)
         {
             List<int> returnList = new List<int>();
             if (binaryTree.Root == null)
