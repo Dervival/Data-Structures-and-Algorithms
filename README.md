@@ -14,3 +14,4 @@ Repository for work for the Code Fellows 401 dn-401d6 dotnet course
 1. [Challenge: Determine if a String Has Balanced Brackets In It](Challenges/bracket_val)
 1. [Data Structure: Binary Trees and Binary Search Trees](Data-Structures/tree)
 1. [Challenge: FizzBuzz Tree](Challenges/fizzBuzzTree)
+1. [Challenge: Breadth-First Traversal and Print](Challenges/breadthFirstTraversal)
