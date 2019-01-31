@@ -10,7 +10,7 @@ namespace findMaxValue
             Console.WriteLine("Hello World!");
         }
 
-        static int FindMaxValue(BinaryTree<int> binaryTree)
+        public static int FindMaxValue(BinaryTree<int> binaryTree)
         {
             if(binaryTree.Root == null)
             {
@@ -19,7 +19,7 @@ namespace findMaxValue
             return FindMaxValue(binaryTree.Root);
         }
 
-        static int FindMaxValue(Node<int> root)
+        public static int FindMaxValue(Node<int> root)
         {
             int leftValue = Int32.MinValue;
             if(root.LeftChild != null)
